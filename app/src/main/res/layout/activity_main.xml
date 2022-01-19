@@ -49,12 +49,21 @@
             android:inputType="textMultiLine"
             android:text="@={form.message}"/>
 
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="@{form.requesting ? View.VISIBLE : View.INVISIBLE}" />
+
         <Button
+            android:id="@+id/button_send"
             style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClickListener="@{(v) -> form.validate(context)}"
+            android:enabled="@{!form.requesting}"
+            android:onClickListener="@{(v) -> form.validate()}"
             android:text="Send" />
+
 
     </LinearLayout>
 

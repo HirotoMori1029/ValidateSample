@@ -26,7 +26,8 @@
             android:hint="To"
             android:inputType="textEmailAddress"
             android:text="@={form.to}"
-            app:errorText="@{form.errorMessage}"/>
+            app:errorText="@{@string/error_message}"
+            app:showError="@{!form.valid}"/>
 
         <EditText
             android:layout_width="match_parent"
